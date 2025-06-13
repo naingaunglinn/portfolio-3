@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold"><ScrambleText content="Naing Aung Linn"/></h1>   
         <p className="bottom-0 left-[7px]"><ScrambleText content="Developer Out Of The Box"/></p>  
         </div>
-        <p className="font-mono">A Senior Developer with over six years of experience in full-stack web development. I specialize in PHP, JavaScript, Laravel, and React, with a strong focus on creating efficient and scalable web applications. I am passionate about learning new technologies and continuously improving my skills to deliver high-quality solutions....</p>
+        <p className="font-mono">A Senior Developer with over seven years of experience in full-stack web development. I specialize in PHP, JavaScript, Laravel, and React, with a strong focus on creating efficient and scalable web applications. I am passionate about learning new technologies and continuously improving my skills to deliver high-quality solutions....</p>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <p className="font-bold text-xs tracking-widest">© 2025 naingaunglinn. All rights reserved.</p>
