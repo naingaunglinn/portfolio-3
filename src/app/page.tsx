@@ -1,6 +1,5 @@
 
 import Counter from "@/components/Counter";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -14,7 +13,7 @@ export default function Home() {
             <p className="text-3xl">Developer Out Of The Box</p> 
           </div> 
           <div className="row-span-1 lg:col-span-3 col-span-6 bg-black/75 backdrop-blur-sm text-white p-5 rounded-xl ">
-            <p className="text-lg text-justify indent-8">A Senior Developer with over seven years of experience in full-stack web development. I specialize in PHP, JavaScript, Laravel, and React with a strong focus on creating efficient and scalable web applications. I'm passionate about learning new technologies and continuously improving my skills to deliver high-quality solutions. My passion lies in writing maintainable code, collaborating with cross-functional teams, and delivering high-quality solutions that align with business goals and user needs.</p>
+            <p className="text-lg text-justify indent-8">A Senior Developer with over seven years of experience in full-stack web development. I specialize in PHP, JavaScript, Laravel, and React with a strong focus on creating efficient and scalable web applications. I&apos;m passionate about learning new technologies and continuously improving my skills to deliver high-quality solutions. My passion lies in writing maintainable code, collaborating with cross-functional teams, and delivering high-quality solutions that align with business goals and user needs.</p>
           </div>
           <div className="row-span-1 lg:col-span-3 col-span-6 bg-black text-white p-5 rounded-xl">
             <h1 className="text-4xl font-[900]">Projects <Counter to={5} duration={1} /></h1>
