@@ -19,7 +19,7 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Naing Aung Linn",
+  title: "Naing Aung Linn | DOOTB",
   description: "Develop Out Of The Box",
 };
 
