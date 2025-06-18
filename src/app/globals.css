@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Orbitron, Arial, Helvetica, sans-serif;
 }
+
+.list-start {
+  padding-inline-start: 18px;
+}
