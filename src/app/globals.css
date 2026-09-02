@@ -4,15 +4,24 @@
   --color-paper: #f6f5f5;
   --color-ink: #1d242b;
   --color-navy: #070d59;
-  --font-display: var(--font-anton);
-  --font-sans: var(--font-manrope);
-  --font-mono: var(--font-space-mono);
+  --font-display: var(--font-bebas);
+  --font-sans: var(--font-montserrat);
+}
+
+html {
+  color-scheme: light;
 }
 
 body {
   background: #f6f5f5;
   color: #1d242b;
-  font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  touch-action: manipulation;
 }
 
 ::selection {
@@ -31,20 +40,23 @@ body {
     animation: hero-rise 0.7s cubic-bezier(0.2, 0.65, 0.25, 1) forwards;
   }
   .hero-line:nth-child(2) {
-    animation-delay: 0.07s;
+    animation-delay: 0.08s;
   }
   .hero-line:nth-child(3) {
-    animation-delay: 0.14s;
+    animation-delay: 0.16s;
   }
   .hero-line:nth-child(4) {
-    animation-delay: 0.21s;
+    animation-delay: 0.24s;
+  }
+  .hero-line:nth-child(5) {
+    animation-delay: 0.32s;
   }
 }
 
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(0.35em);
+    transform: translateY(0.5rem);
   }
   to {
     opacity: 1;

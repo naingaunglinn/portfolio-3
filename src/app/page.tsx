@@ -139,146 +139,214 @@ const experiences: Experience[] = [
   },
 ];
 
-const connections: { label: string; href: string; note?: string }[] = [
-  { label: "Nightace Studio", href: "https://nightace-studio.dev/" },
-  { label: "Facebook", href: "https://www.facebook.com/nightacewebstudio" },
-  { label: "Instagram", href: "https://www.instagram.com/nightacestudio/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/naing-aung-linn/", note: "[ Certifications ]" },
+const certifications: { title: string; issuer: string; issued: string }[] = [
+  { title: "Database Design and Basic SQL in PostgreSQL", issuer: "University of Michigan", issued: "Aug 2026" },
+  { title: "Generative AI with Large Language Models", issuer: "DeepLearning.AI", issued: "Aug 2026" },
+  { title: "Claude 101", issuer: "Anthropic", issued: "Mar 2026" },
+  { title: "Claude Code in Action", issuer: "Anthropic", issued: "Mar 2026" },
+  { title: "Learn Ruby on Rails Course", issuer: "Codecademy", issued: "Aug 2025" },
+  { title: "Learn Ruby Course", issuer: "Codecademy", issued: "Aug 2025" },
+  { title: "AWS Educate Introduction to Generative AI", issuer: "Amazon Web Services", issued: "Jul 2025" },
+  { title: "JavaScript Algorithms and Data Structures", issuer: "freeCodeCamp", issued: "Dec 2023" },
+  { title: "AI For Everyone", issuer: "DeepLearning.AI", issued: "May 2020" },
 ];
+
+const connections: { label: string; value: string; href: string; note?: string }[] = [
+  { label: "Website", value: "nightace-studio.dev", href: "https://nightace-studio.dev/" },
+  { label: "Facebook", value: "@nightacewebstudio", href: "https://www.facebook.com/nightacewebstudio" },
+  { label: "Instagram", value: "@nightacestudio", href: "https://www.instagram.com/nightacestudio/" },
+  { label: "LinkedIn", value: "naing-aung-linn", href: "https://www.linkedin.com/in/naing-aung-linn/", note: "Certifications" },
+];
+
+function ArrowUpRight({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <path d="M6 18 18 6M8.5 6H18v9.5" stroke="currentColor" strokeWidth="2.25" strokeLinecap="square" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="bg-paper font-sans text-ink">
-      <header className="border-b-2 border-ink">
-        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-4 font-mono text-[11px] uppercase tracking-[0.2em] sm:px-10">
-          <p className="font-bold">Naing Aung Linn</p>
-          <p className="hidden text-navy sm:block">[ Portfolio ]</p>
-          <p className="text-ink/60">7+ Years Experience</p>
-        </div>
+    <div className="mx-auto max-w-[1520px] px-3 pb-8 font-sans sm:px-6">
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-navy focus:px-4 focus:py-3 focus:text-[11px] focus:font-semibold focus:uppercase focus:tracking-[0.25em] focus:text-paper"
+      >
+        Skip to content
+      </a>
+
+      <header className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 px-2 py-5 text-[10px] font-semibold uppercase tracking-[0.3em] sm:px-4">
+        <p>Naing Aung Linn</p>
+        <p className="text-ink/60">Portfolio</p>
       </header>
 
-      <main>
-        <section className="mx-auto max-w-[1440px] px-5 pb-16 pt-14 sm:px-10 sm:pb-24 sm:pt-20">
-          <h1 className="font-display text-[clamp(3.25rem,12.5vw,11rem)] uppercase leading-[0.92] lg:pl-[22%]">
-            <span className="hero-line block">Naing</span>
-            <span className="hero-line block">Aung Linn</span>
-            <span className="hero-line block text-navy">Senior Web</span>
-            <span className="hero-line block text-navy">Developer</span>
-          </h1>
-          <div className="mt-16 grid gap-6 sm:mt-24 lg:grid-cols-12">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-navy lg:col-span-3">[ About ]</p>
-            <p className="max-w-[62ch] text-[15px] leading-relaxed sm:text-base lg:col-span-7 lg:col-start-5">
-              I&apos;m a senior web developer with over seven years of full-stack experience, specializing in PHP, JavaScript, Laravel, and React. I focus on building efficient, scalable web applications and writing maintainable code, and I enjoy learning new technologies as projects demand them. I work closely with cross-functional teams to deliver solutions that serve both business goals and the people who use them.
-            </p>
+      <main id="content" className="space-y-4 sm:space-y-6">
+        <section className="bg-navy p-4 sm:p-8 lg:p-12">
+          <div className="bg-paper px-5 py-12 sm:px-10 sm:py-16 lg:py-20">
+            <div className="mx-auto max-w-5xl text-center">
+              <p className="hero-line text-[10px] font-semibold uppercase tracking-[0.35em] text-navy sm:text-[11px]">
+                Senior Web Developer
+              </p>
+              <h1 className="hero-line mt-6 font-display text-[clamp(3.5rem,11vw,10rem)] uppercase leading-[0.9] tracking-[0.02em] text-balance">
+                Naing Aung Linn
+              </h1>
+              <p className="hero-line mt-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/70 sm:text-[11px]">
+                @{" "}
+                <Link
+                  href={"https://www.brycenmyanmar.com.mm/"}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-baseline gap-1.5 text-navy underline decoration-2 underline-offset-4 transition-colors hover:text-ink"
+                >
+                  Brycen Myanmar
+                  <ArrowUpRight className="h-2.5 w-2.5 self-center" />
+                </Link>
+              </p>
+            </div>
+            <div className="hero-line mx-auto mt-12 grid max-w-5xl gap-10 border-t-2 border-ink pt-10 sm:mt-16 sm:pt-12 lg:grid-cols-12 lg:gap-8">
+              <h2 className="font-display text-[clamp(2.75rem,6.5vw,6rem)] uppercase leading-[0.88] lg:col-span-7">
+                <span className="block">Developer</span>
+                <span className="block">Out Of</span>
+                <span className="block text-navy">The Box.</span>
+              </h2>
+              <div className="lg:col-span-5 lg:col-start-8 lg:pt-2">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-navy">About</p>
+                <p className="mt-5 max-w-[52ch] text-sm leading-[1.9] text-pretty sm:text-[15px]">
+                  I&apos;m a senior web developer with over seven years of full-stack experience, specializing in PHP, JavaScript, Laravel, and React. I focus on building efficient, scalable web applications and writing maintainable code, and I enjoy learning new technologies as projects demand them. I work closely with cross-functional teams to deliver solutions that serve both business goals and the people who use them.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="border-y-2 border-ink bg-navy text-paper">
-          <div className="mx-auto max-w-[1440px] px-5 py-14 sm:px-10 sm:py-20">
-            <p className="font-display text-[clamp(2.25rem,6.5vw,6rem)] uppercase leading-[0.95]">
-              Developer Out Of The Box.
-            </p>
-            <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] sm:text-xs">
-              Senior Web Developer @{" "}
-              <Link
-                href={"https://www.brycenmyanmar.com.mm/"}
-                target="_blank"
-                rel="noreferrer"
-                className="underline decoration-2 underline-offset-4 transition-opacity hover:opacity-60 focus-visible:outline-paper"
-              >
-                Brycen Myanmar ↗
-              </Link>
-            </p>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-[1440px] px-5 pb-24 pt-14 sm:px-10 sm:pt-20">
-          <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em]">
-            <p className="text-navy">[ Career Experience ]</p>
-            <p className="text-ink/60">2018 — 2024</p>
-          </div>
-          <div className="mt-6 flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
-            <h2 className="font-display text-[clamp(2.75rem,8vw,7rem)] uppercase leading-[0.92]">
-              <span className="block">Career</span>
-              <span className="block">Experience</span>
-            </h2>
-            <p className="font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.92] text-navy">
-              <Counter to={experiences.length} duration={1} />
-            </p>
-          </div>
-
-          <ol className="mt-12 sm:mt-16">
-            {experiences.map((exp, index) => (
-              <li
-                key={exp.period}
-                className="group grid gap-x-8 gap-y-5 border-t-2 border-ink py-10 sm:py-12 lg:grid-cols-12"
-              >
-                <div className="flex flex-row-reverse items-baseline justify-between gap-4 lg:col-span-3 lg:block">
-                  <p
-                    className={`-ml-2 inline-block px-2 py-1 font-display text-4xl leading-none sm:text-5xl ${
-                      exp.featured
-                        ? "bg-navy text-paper"
-                        : "text-navy transition-colors group-hover:bg-navy group-hover:text-paper"
-                    }`}
-                  >
-                    {String(index + 1).padStart(2, "0")}.
+        <section className="border-2 border-ink bg-paper p-6 sm:p-10 lg:p-14">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+            <header className="lg:col-span-4">
+              <div className="lg:sticky lg:top-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-navy">2018 — 2024</p>
+                <h2 className="mt-4 font-display text-[clamp(3rem,6.5vw,6.5rem)] uppercase leading-[0.88]">
+                  <span className="block">Career</span>
+                  <span className="block">Experience</span>
+                </h2>
+                <p className="mt-8 font-display text-6xl leading-none text-navy tabular-nums sm:text-7xl">
+                  <Counter to={experiences.length} duration={1} />
+                </p>
+                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/60">Engagements</p>
+                <ArrowUpRight className="mt-10 hidden h-16 w-16 text-navy lg:block" />
+              </div>
+            </header>
+            <ol className="space-y-12 lg:col-span-8 sm:space-y-14">
+              {experiences.map((exp, index) => (
+                <li key={exp.period}>
+                  <div className="flex items-baseline gap-3 sm:gap-5">
+                    <h3 className="min-w-0 font-display text-3xl uppercase leading-[0.95] sm:text-4xl">{exp.title}</h3>
+                    <span aria-hidden className="hidden flex-1 border-b-2 border-ink sm:block" />
+                    <span
+                      className={`font-display text-3xl leading-none sm:text-4xl ${
+                        exp.featured ? "bg-navy px-2 py-1 text-paper" : "text-navy"
+                      }`}
+                    >
+                      {String(index + 1).padStart(2, "0")}.
+                    </span>
+                  </div>
+                  <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.25em]">
+                    <span className="text-navy">{exp.period}</span>
+                    <span className="text-ink/60"> · {exp.role}</span>
                   </p>
-                  <p className="font-mono text-xs text-navy lg:mt-5">{exp.period}</p>
-                </div>
-                <div className="lg:col-span-9 xl:col-span-8">
-                  <h3 className="font-display text-2xl uppercase leading-tight sm:text-4xl">{exp.title}</h3>
-                  <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ink/60">{exp.role}</p>
-                  <p className="mt-5 max-w-[68ch] text-[15px] leading-relaxed sm:text-base">{exp.summary}</p>
+                  <p className="mt-4 max-w-[70ch] text-sm leading-[1.85] text-pretty sm:text-[15px]">{exp.summary}</p>
                   {exp.highlights.length > 0 && (
-                    <ul className="mt-5 max-w-[68ch] space-y-2.5">
+                    <ul className="mt-4 max-w-[70ch] space-y-2.5">
                       {exp.highlights.map((highlight) => (
-                        <li key={highlight} className="flex gap-3 text-[15px] leading-relaxed sm:text-base">
-                          <span aria-hidden className="font-mono text-navy">–</span>
+                        <li key={highlight} className="flex gap-3 text-sm leading-[1.85] sm:text-[15px]">
+                          <span aria-hidden className="mt-[0.8em] h-0.5 w-4 shrink-0 bg-navy" />
                           <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   )}
-                  <p className="mt-6 font-mono text-xs leading-relaxed">
-                    <span className="font-bold text-navy">Tech:</span> {exp.tech.join(" · ")}
+                  <p className="mt-5 text-xs font-medium leading-relaxed tracking-wide text-ink/70">
+                    <span className="font-semibold uppercase tracking-[0.25em] text-navy">Tech:</span>{" "}
+                    {exp.tech.join(" · ")}
                   </p>
-                </div>
-              </li>
-            ))}
-          </ol>
+                </li>
+              ))}
+            </ol>
+          </div>
         </section>
 
-        <section className="border-t-2 border-ink">
-          <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-10 sm:py-24">
-            <div className="grid gap-8 lg:grid-cols-12">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-navy lg:col-span-3">[ Reach Out ]</p>
-              <ul className="space-y-2 lg:col-span-9 lg:col-start-5">
-                {connections.map((connection) => (
-                  <li key={connection.href}>
-                    <Link
-                      href={connection.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex flex-wrap items-baseline gap-x-4 font-display text-[clamp(2.5rem,8vw,7rem)] uppercase leading-[0.95] transition-colors hover:text-navy"
-                    >
-                      {connection.label}
-                      {connection.note && (
-                        <span className="font-mono text-[11px] tracking-[0.2em] text-navy">{connection.note}</span>
-                      )}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        <section className="border-2 border-ink bg-paper p-6 sm:p-10 lg:p-14">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-navy">Licenses &amp; Certifications</p>
+          <h2 className="mt-4 font-display text-[clamp(3rem,7vw,7rem)] uppercase leading-[0.9]">Certifications</h2>
+          <ul className="mt-10 border-t-2 border-ink sm:mt-12">
+            {certifications.map((certification) => (
+              <li
+                key={certification.title}
+                className="grid gap-x-6 gap-y-1.5 border-b-2 border-ink py-5 sm:grid-cols-12 sm:items-baseline sm:py-6"
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-navy sm:col-span-2">
+                  {certification.issued}
+                </p>
+                <h3 className="font-display text-2xl uppercase leading-[0.95] sm:col-span-7 sm:text-3xl">
+                  {certification.title}
+                </h3>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-ink/60 sm:col-span-3 sm:text-right">
+                  {certification.issuer}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-[10px] font-semibold uppercase tracking-[0.3em]">
+            <Link
+              href={"https://www.linkedin.com/in/naing-aung-linn/"}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-baseline gap-1.5 text-navy underline decoration-2 underline-offset-4 transition-colors hover:text-ink"
+            >
+              Full credentials on LinkedIn
+              <ArrowUpRight className="h-2.5 w-2.5 self-center" />
+            </Link>
+          </p>
+        </section>
+
+        <section className="bg-navy p-6 text-paper sm:p-10 lg:p-14">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-paper/70">Reach Out</p>
+          <h2 className="mt-4 font-display text-[clamp(3.5rem,10vw,9rem)] uppercase leading-[0.9] text-balance">
+            Get In Touch
+          </h2>
+          <ul className="mt-10 border-t-2 border-paper/25 sm:mt-14">
+            {connections.map((connection) => (
+              <li key={connection.href} className="border-b-2 border-paper/25">
+                <Link
+                  href={connection.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group -mx-2 flex items-center justify-between gap-4 px-2 py-5 transition-colors hover:bg-paper/10 focus-visible:outline-paper sm:py-6"
+                >
+                  <span className="w-24 shrink-0 text-[10px] font-semibold uppercase tracking-[0.3em] text-paper/70 sm:w-40">
+                    {connection.label}
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-x-3 gap-y-1 text-right">
+                    {connection.note && (
+                      <span className="border border-paper/40 px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.25em] text-paper/80">
+                        {connection.note}
+                      </span>
+                    )}
+                    <span className="break-words text-sm font-semibold uppercase tracking-[0.15em] sm:text-base">
+                      {connection.value}
+                    </span>
+                  </span>
+                  <ArrowUpRight className="h-5 w-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:h-6 sm:w-6" />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
 
-      <footer className="border-t-2 border-ink">
-        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-5 font-mono text-[11px] uppercase tracking-[0.2em] sm:px-10">
-          <p>© 2026 naingaunglinn</p>
-          <p>All rights reserved.</p>
-        </div>
+      <footer className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 px-2 py-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/70 sm:px-4">
+        <p>© 2026 naingaunglinn</p>
+        <p>All rights reserved.</p>
       </footer>
     </div>
   );

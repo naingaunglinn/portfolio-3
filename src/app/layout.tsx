@@ -1,27 +1,25 @@
-import type { Metadata } from "next";
-import { Anton, Manrope, Space_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const anton = Anton({
-  variable: "--font-anton",
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas",
   subsets: ["latin"],
   weight: "400",
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-});
-
-const spaceMono = Space_Mono({
-  variable: "--font-space-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Naing Aung Linn | DOOTB",
   description: "Develop Out Of The Box",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F6F5F5",
 };
 
 export default function RootLayout({
@@ -32,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${anton.variable} ${manrope.variable} ${spaceMono.variable} antialiased`}
+        className={`${bebasNeue.variable} ${montserrat.variable} antialiased`}
       >
         {children}
       </body>
