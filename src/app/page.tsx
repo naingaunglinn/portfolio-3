@@ -411,17 +411,19 @@ export default function Home() {
                   rel="noreferrer"
                   className="group -mx-2 flex items-center justify-between gap-4 px-2 py-5 transition-colors hover:bg-paper/10 focus-visible:outline-paper sm:py-6"
                 >
-                  <span className="w-24 shrink-0 text-[10px] font-semibold uppercase tracking-[0.3em] text-paper/70 sm:w-40">
-                    {connection.label}
-                  </span>
-                  <span className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-x-3 gap-y-1 text-right">
-                    {connection.note && (
-                      <span className="border border-paper/40 px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.25em] text-paper/80">
-                        {connection.note}
+                  <span className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-paper/70 sm:w-40 sm:shrink-0">
+                      {connection.label}
+                    </span>
+                    <span className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1.5 sm:flex-1 sm:justify-end sm:text-right">
+                      {connection.note && (
+                        <span className="order-last border border-paper/40 px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.25em] text-paper/80 sm:order-none">
+                          {connection.note}
+                        </span>
+                      )}
+                      <span className="min-w-0 break-words text-sm font-semibold uppercase tracking-[0.12em] sm:text-base sm:tracking-[0.15em]">
+                        {connection.value}
                       </span>
-                    )}
-                    <span className="break-words text-sm font-semibold uppercase tracking-[0.15em] sm:text-base">
-                      {connection.value}
                     </span>
                   </span>
                   <ArrowUpRight className="h-5 w-5 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:h-6 sm:w-6" />
