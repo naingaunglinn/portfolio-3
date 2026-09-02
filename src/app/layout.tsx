@@ -1,26 +1,25 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Orbitron } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Bebas_Neue, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas",
   subsets: ["latin"],
+  weight: "400",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-});
-
-const orbitron = Orbitron({ 
-  variable: "--font-orbitron",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"], 
 });
 
 export const metadata: Metadata = {
   title: "Naing Aung Linn | DOOTB",
   description: "Develop Out Of The Box",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#F6F5F5",
 };
 
 export default function RootLayout({
@@ -31,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased`}
+        className={`${bebasNeue.variable} ${montserrat.variable} antialiased`}
       >
         {children}
       </body>
