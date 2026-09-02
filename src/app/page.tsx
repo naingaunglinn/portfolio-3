@@ -12,7 +12,7 @@ type Experience = {
   featured?: boolean;
 };
 
-const experiences: Experience[] = [
+const mmlExperiences: Experience[] = [
   {
     period: "2018/05 – 2018/09",
     title: "Sports Journal Websites",
@@ -139,6 +139,76 @@ const experiences: Experience[] = [
   },
 ];
 
+const brycenExperiences: Experience[] = [
+  {
+    period: "2024/11 – 2025/03",
+    title: "Product Management System",
+    role: "Backend Developer",
+    summary:
+      "A product management system whose main focus is processing product data through batch processing and scheduled jobs. My work centered on the data pipeline — developing the batch processes, optimizing the MySQL queries behind them, and validating and testing their output.",
+    highlights: [
+      "Developed batch processes for handling product data on Laravel 11, including scheduled batches that automate recurring data-processing tasks",
+      "Wrote and optimized MySQL queries to retrieve product data efficiently",
+      "Processed and validated the data produced by the batch runs",
+      "Created Excel-based test cases from the processed data and performed testing against them",
+    ],
+    tech: ["Laravel 11", "PHP", "MySQL", "Redis", "MinIO", "MySQL Workbench", "Excel"],
+  },
+  {
+    period: "2025/04 – 2025/06",
+    title: "HR Management System",
+    role: "Full-Stack Developer",
+    summary:
+      "A multi-tenant HR management system — a Laravel REST API backend serving a React admin frontend, covering employee, attendance, leave, allowance, and payroll workflows. I worked on both sides, from dashboard data aggregation and salary-calculation logic to the React screens that consume the API.",
+    highlights: [
+      "Developed pending-request dashboard cards end to end — repository queries aggregating pending allowance and exchange-date requests in Laravel, and the React card UI wired to them, including tenant-specific dashboard variants",
+      "Fixed salary-calculation logic so allowances are included in salary reports and payslips, and salaries are not calculated for employees with no assigned shift",
+      "Improved the performance of employee leave and late/early Excel exports by reworking the spreadsheet-generation loop and its per-row styling",
+      "Reworked the employee allowance registration UI — moved the effective-date form into the registration form and fixed effective-date handling for one-time allowances",
+      "Extended the plan-register screen to add multiple employees at once through an employee-list modal",
+    ],
+    tech: ["Laravel 7", "PHP", "MySQL", "React", "CoreUI", "Material-UI", "axios", "Laravel Excel", "PhpSpreadsheet"],
+  },
+  {
+    period: "2025/06 – 2025/08",
+    title: "Accounting Workflow System",
+    role: "Full-Stack Developer",
+    summary:
+      "An accounting and budget-management system for a chemical-industry business, centered on multi-step approval workflows. My work focused on the workflow module — its screens, approval logic, and data tooling — along with permission handling and test design.",
+    highlights: [
+      "Developed core workflow features — workflow detail screens with edit and delete, approval and redirect logic, email notifications, file downloads, and search by user layer",
+      "Implemented copy-and-paste features for labor-cost details and workflow files, including the copy form design and popup flow, and reduced loading times",
+      "Built Excel-to-JSON data extraction and fixed permission and security issues, including role- and permission-based redirects across all pages",
+      "Hardened the module through validation and bug fixing — required-field validation, duplicate name and email handling, and approver error handling — and designed Excel-based test cases for the workflow list and search",
+    ],
+    tech: ["MySQL", "Excel"],
+  },
+  {
+    period: "2025/09 – Present",
+    title: "Used-Vehicle Trading Platform",
+    role: "Full-Stack Developer",
+    summary:
+      "A used-vehicle trading and recycling platform — a Ruby on Rails back office serving multiple Next.js frontends — covering auctions, inventory, parts, container exports, and insurance workflows. My work spans the Rails admin, the Next.js apps, and the platform's admin documentation.",
+    highlights: [
+      "Developed the admin insurance-case module as one of its two main developers — vehicle assessment and disposal requests tracked from request through assessment, pickup, and settlement — creating its initial data model, admin screens, and notification mailers",
+      "Implemented WebAuthn biometric login and registration alongside password-reset flows for insurance users, spanning the Rails backend and two of the Next.js frontends",
+      "Built monthly inventory-management features — CSV and Excel report builders delivered through an asynchronous download center, overseas inventory snapshots, shared-stock exclusion, and parts-division release holds",
+      "Created the vehicle inventory photo management module and extended demolition-report, parts-info, and container-invoice screens with new filters, columns, and outputs",
+      "Wrote a large set of the platform's admin user manuals — inventory, invoicing, transport, and parts workflows — served through authenticated routes",
+      "Backed feature work with RSpec request and model specs",
+    ],
+    tech: ["Ruby on Rails 6", "Ruby", "PostgreSQL", "Slim", "RSpec", "WebAuthn", "AWS S3", "Docker", "Next.js 14", "React", "TypeScript"],
+    featured: true,
+  },
+];
+
+const experienceGroups: { company: string; span: string; entries: Experience[] }[] = [
+  { company: "Brycen Myanmar", span: "2024 — Present", entries: [...brycenExperiences].reverse() },
+  { company: "MML Web Development Company", span: "2018 — 2024", entries: [...mmlExperiences].reverse() },
+];
+
+const totalEngagements = experienceGroups.reduce((total, group) => total + group.entries.length, 0);
+
 const certifications: { title: string; issuer: string; issued: string }[] = [
   { title: "Database Design and Basic SQL in PostgreSQL", issuer: "University of Michigan", issued: "Aug 2026" },
   { title: "Generative AI with Large Language Models", issuer: "DeepLearning.AI", issued: "Aug 2026" },
@@ -224,54 +294,72 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
             <header className="lg:col-span-4">
               <div className="lg:sticky lg:top-8">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-navy">2018 — 2024</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-navy">2018 — Present</p>
                 <h2 className="mt-4 font-display text-[clamp(3rem,6.5vw,6.5rem)] uppercase leading-[0.88]">
                   <span className="block">Career</span>
                   <span className="block">Experience</span>
                 </h2>
                 <p className="mt-8 font-display text-6xl leading-none text-navy tabular-nums sm:text-7xl">
-                  <Counter to={experiences.length} duration={1} />
+                  <Counter to={totalEngagements} duration={1} />
                 </p>
                 <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/60">Engagements</p>
                 <ArrowUpRight className="mt-10 hidden h-16 w-16 text-navy lg:block" />
               </div>
             </header>
-            <ol className="space-y-12 lg:col-span-8 sm:space-y-14">
-              {experiences.map((exp, index) => (
-                <li key={exp.period}>
-                  <div className="flex items-baseline gap-3 sm:gap-5">
-                    <h3 className="min-w-0 font-display text-3xl uppercase leading-[0.95] sm:text-4xl">{exp.title}</h3>
-                    <span aria-hidden className="hidden flex-1 border-b-2 border-ink sm:block" />
-                    <span
-                      className={`font-display text-3xl leading-none sm:text-4xl ${
-                        exp.featured ? "bg-navy px-2 py-1 text-paper" : "text-navy"
-                      }`}
-                    >
-                      {String(index + 1).padStart(2, "0")}.
-                    </span>
-                  </div>
-                  <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.25em]">
-                    <span className="text-navy">{exp.period}</span>
-                    <span className="text-ink/60"> · {exp.role}</span>
-                  </p>
-                  <p className="mt-4 max-w-[70ch] text-sm leading-[1.85] text-pretty sm:text-[15px]">{exp.summary}</p>
-                  {exp.highlights.length > 0 && (
-                    <ul className="mt-4 max-w-[70ch] space-y-2.5">
-                      {exp.highlights.map((highlight) => (
-                        <li key={highlight} className="flex gap-3 text-sm leading-[1.85] sm:text-[15px]">
-                          <span aria-hidden className="mt-[0.8em] h-0.5 w-4 shrink-0 bg-navy" />
-                          <span>{highlight}</span>
+            <div className="space-y-14 lg:col-span-8 sm:space-y-16">
+              {experienceGroups.map((group, groupIndex) => {
+                const offset = experienceGroups
+                  .slice(0, groupIndex)
+                  .reduce((total, prev) => total + prev.entries.length, 0);
+                return (
+                  <div key={group.company}>
+                    <div className="flex items-baseline gap-3 sm:gap-5">
+                      <h3 className="min-w-0 bg-navy px-3 py-1.5 font-display text-2xl uppercase leading-none text-paper sm:text-3xl">
+                        {group.company}
+                      </h3>
+                      <span aria-hidden className="hidden flex-1 border-b-2 border-ink sm:block" />
+                      <p className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.25em] text-navy">{group.span}</p>
+                    </div>
+                    <ol className="mt-10 space-y-12 sm:mt-12 sm:space-y-14">
+                      {group.entries.map((exp, index) => (
+                        <li key={exp.period}>
+                          <div className="flex items-baseline gap-3 sm:gap-5">
+                            <h4 className="min-w-0 font-display text-3xl uppercase leading-[0.95] sm:text-4xl">{exp.title}</h4>
+                            <span aria-hidden className="hidden flex-1 border-b-2 border-ink sm:block" />
+                            <span
+                              className={`font-display text-3xl leading-none sm:text-4xl ${
+                                exp.featured ? "bg-navy px-2 py-1 text-paper" : "text-navy"
+                              }`}
+                            >
+                              {String(totalEngagements - (offset + index)).padStart(2, "0")}.
+                            </span>
+                          </div>
+                          <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.25em]">
+                            <span className="text-navy">{exp.period}</span>
+                            <span className="text-ink/60"> · {exp.role}</span>
+                          </p>
+                          <p className="mt-4 max-w-[70ch] text-sm leading-[1.85] text-pretty sm:text-[15px]">{exp.summary}</p>
+                          {exp.highlights.length > 0 && (
+                            <ul className="mt-4 max-w-[70ch] space-y-2.5">
+                              {exp.highlights.map((highlight) => (
+                                <li key={highlight} className="flex gap-3 text-sm leading-[1.85] sm:text-[15px]">
+                                  <span aria-hidden className="mt-[0.8em] h-0.5 w-4 shrink-0 bg-navy" />
+                                  <span>{highlight}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          <p className="mt-5 text-xs font-medium leading-relaxed tracking-wide text-ink/70">
+                            <span className="font-semibold uppercase tracking-[0.25em] text-navy">Tech:</span>{" "}
+                            {exp.tech.join(" · ")}
+                          </p>
                         </li>
                       ))}
-                    </ul>
-                  )}
-                  <p className="mt-5 text-xs font-medium leading-relaxed tracking-wide text-ink/70">
-                    <span className="font-semibold uppercase tracking-[0.25em] text-navy">Tech:</span>{" "}
-                    {exp.tech.join(" · ")}
-                  </p>
-                </li>
-              ))}
-            </ol>
+                    </ol>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
